@@ -1,0 +1,12 @@
+diff --git a/vendor/magento/framework/View/Element/Template/File/Validator.php b/vendor/magento/framework/View/Element/Template/File/Validator.php
+index 285c05c9..db19ed76 100644
+--- a/vendor/magento/framework/View/Element/Template/File/Validator.php
++++ b/vendor/magento/framework/View/Element/Template/File/Validator.php
+@@ -136,6 +136,7 @@ class Validator
+             $directories = (array)$directories;
+         }
+         $realPath = $this->fileDriver->getRealPath($path);
++        $realPath = str_replace('\\', '/', $realPath); // extra code added
+         foreach ($directories as $directory) {
+             if (0 === strpos($realPath, $directory)) {
+                 return true;
